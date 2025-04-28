@@ -49,6 +49,6 @@ accelerate launch \
 
 export CUDA_VISIBLE_DEVICES=0
 
-python -m eval.val_eval.run_eval --model_name_or_path output/${model}/  --tokenizer_name_or_path output/${model}/ --save_dir results/val_eval/${model}/      --eval_batch_size 10          --use_chat_format     --chat_formatting_function eval.templates.create_prompt_with_tulu_chat_format --use_vllm
+# python -m eval.val_eval.run_eval --model_name_or_path output/${model}/  --tokenizer_name_or_path output/${model}/ --save_dir results/val_eval/${model}/      --eval_batch_size 10          --use_chat_format     --chat_formatting_function eval.templates.create_prompt_with_tulu_chat_format --use_vllm
 
-alpaca_eval --model_outputs results/val_eval/${model}/${model}-greedy-long-output.json --annotators_config alpaca_eval_llama3_70b_fn --reference_outputs eval/val_eval/val-gpt3.5-2.json
+# alpaca_eval --model_outputs results/val_eval/${model}/${model}-greedy-long-output.json --annotators_config alpaca_eval_llama3_70b_fn --reference_outputs eval/val_eval/val-gpt3.5-2.json
