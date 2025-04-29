@@ -27,9 +27,9 @@ accelerate launch \
     --deepspeed_config_file ds_configs/stage3_no_offloading_accelerate.conf \
     --main_process_port 29510 \
     open_instruct/finetune.py \
-    --model_name_or_path meta-llama/Llama-2-7B-hf \
+    --model_name_or_path /scratch/network/pl7682/cos484/implicit-ins/output/limallama7bep1 \
     --use_flash_attn \
-    --tokenizer_name meta-llama/Llama-2-7B-hf \
+    --tokenizer_name /scratch/network/pl7682/cos484/implicit-ins/output/limallama7bep1 \
     --use_slow_tokenizer \
     --train_file data/processed/lima/lima_data.jsonl \
     --max_seq_length 2048 \
@@ -49,6 +49,6 @@ accelerate launch \
 
 export CUDA_VISIBLE_DEVICES=0
 
-python -m eval.val_eval.run_eval --model_name_or_path meta-llama/Llama-2-7B-hf  --tokenizer_name_or_path meta-llama/Llama-2-7B-hf --save_dir results/val_eval/${model}/      --eval_batch_size 10          --use_chat_format     --chat_formatting_function eval.templates.create_prompt_with_tulu_chat_format --use_vllm
+python -m eval.val_eval.run_eval --model_name_or_path /scratch/network/pl7682/cos484/implicit-ins/output/limallama7bep1  --tokenizer_name_or_path /scratch/network/pl7682/cos484/implicit-ins/output/limallama7bep1 --save_dir results/val_eval/${model}/      --eval_batch_size 10          --use_chat_format     --chat_formatting_function eval.templates.create_prompt_with_tulu_chat_format --use_vllm
 
 # alpaca_eval --model_outputs results/val_eval/${model}/${model}-greedy-long-output.json --annotators_config alpaca_eval_llama3_70b_fn --reference_outputs eval/val_eval/val-gpt3.5-2.json

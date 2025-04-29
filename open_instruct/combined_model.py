@@ -61,6 +61,7 @@ class InsTunerModel(nn.Module):
       self.do_diversity_rule = 'diversity' in magic_string
       self.do_start_rule = 'start' in magic_string
       self.do_uniform_rule = 'uniform' in magic_string
+      # self.do_ablation_rule = 'ablation' in magic_string
 
   def register_initial_tokens(self, tokenizer):
     vec = torch.tensor(self.vocab_size)
